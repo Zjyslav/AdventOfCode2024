@@ -53,4 +53,22 @@ public class ExampleInputTests
   }
 
 
+  [Fact]
+  public void Day02_Part2()
+  {
+    // Arrange
+    string inputPath = Path.Combine("ExampleInputs", "Day02.txt");
+    var input = File.ReadAllLines(inputPath);
+    Day02.Solver solver = new(input);
+
+    int expected = 4;
+
+    // Act
+    var actual = solver.SolvePart2();
+
+    // Assert
+    Assert.Equal(expected, actual);
+  }
+
+
 }
