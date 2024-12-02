@@ -38,4 +38,10 @@ public class Solver
 
     return sum;
   }
+
+  public long SolvePart2()
+  {
+
+    throw new NotImplementedException();
+  }
 }
