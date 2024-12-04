@@ -104,4 +104,20 @@ public class ExampleInputTests
     Assert.Equal(expected, actual);
   }
 
+  [Fact]
+  public void Day04_Part1()
+  {
+    // Arrange
+    string inputPath = Path.Combine("ExampleInputs", "Day04.txt");
+    var input = File.ReadAllLines(inputPath);
+    Day04.Solver solver = new(input);
+
+    int expected = 18;
+
+    // Act
+    var actual = solver.SolvePart1();
+
+    // Assert
+    Assert.Equal(expected, actual);
+  }
 }
