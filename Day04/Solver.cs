@@ -31,7 +31,22 @@ public class Solver
 
   public int SolvePart2()
   {
-    throw new NotImplementedException();
+    int rowCount = _input.Length;
+    int colCount = _input[0].Length;
+
+    int matchCount = 0;
+    for (int row = 0; row < rowCount; row++)
+    {
+      for (int col = 0; col < colCount; col++)
+      {
+        if (IsXMatch(row, col, 'M', 'A', 'S'))
+        {
+          matchCount++;
+        }
+      }
+    }
+
+    return matchCount;
   }
 
   private int CountMatches(int row, int col, char[] phrase)
@@ -194,5 +209,31 @@ public class Solver
       }
     }
     return true;
+  }
+
+  private bool IsXMatch(int row, int col, char startChar, char middleChar, char endChar)
+  {
+    if (row >= _input.Length - 1 ||
+        col >= _input[row].Length - 1 ||
+        row < 1 ||
+        col < 1 ||
+        _input[row][col] != middleChar)
+    {
+      return false;
+    }
+
+    return (
+            (_input[row - 1][col - 1] == startChar &&
+             _input[row + 1][col + 1] == endChar) ||
+            (_input[row - 1][col - 1] == endChar &&
+              _input[row + 1][col + 1] == startChar)
+           )
+           &&
+           (
+            (_input[row - 1][col + 1] == startChar &&
+             _input[row + 1][col - 1] == endChar) ||
+            (_input[row - 1][col + 1] == endChar &&
+             _input[row + 1][col - 1] == startChar)
+           );
   }
 }
