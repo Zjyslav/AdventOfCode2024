@@ -115,7 +115,7 @@ public class Solver
     for (int i = 0; i < sortedUpdate.Length - 1; i++)
     {
       bool swapped = false;
-      for (int j = 0; j < sortedUpdate.Length - 1; j++)
+      for (int j = 0; j < sortedUpdate.Length - i - 1; j++)
       {
         int x = sortedUpdate[j];
         int y = sortedUpdate[j + 1];
